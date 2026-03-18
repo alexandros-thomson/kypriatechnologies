@@ -126,35 +126,39 @@ footer{border-top:1px solid var(--border);padding:40px 0;text-align:center;color
 <h2 class="section-title">Pricing</h2>
 <div class="pricing-grid">
 <div class="price-card">
-<h3>Free Tier</h3>
-<div class="price">$0<span>/mo</span></div>
+<h3>Genesis Pack</h3>
+<div class="price">$19<span> once</span></div>
 <ul>
-<li>3 API calls (demo)</li>
-<li>Basic persona fields</li>
-<li>Community support</li>
+<li>13 pre-built personas (JSON)</li>
+<li>Complete SQL schema</li>
+<li>Synthesis functions</li>
+<li>JavaScript client</li>
 </ul>
-<a href="#demo" class="btn btn-outline">Try Demo</a>
+<a href="https://mrspetses.gumroad.com/l/kjrbtt" class="btn btn-outline">Download Now</a>
 </div>
 <div class="price-card featured">
-<h3>Pro API</h3>
+<h3>API Access</h3>
 <div class="price">$29<span>/mo</span></div>
 <ul>
-<li>1,000 API calls/month</li>
-<li>Full persona profiles</li>
+<li>Unlimited synthesis calls</li>
+<li>REST API with key auth</li>
+<li>All spawn + evolution endpoints</li>
+<li>Real-time persona generation</li>
 <li>Priority support</li>
-<li>Webhook integrations</li>
 </ul>
-<a href="https://buy.stripe.com/4gw7tk8PS3Re3HW145" class="btn btn-primary">Subscribe Now</a>
+<a href="https://buy.stripe.com/aFabJ0chNdwjbkl7MF1gs0I" class="btn btn-primary">Start Building</a>
 </div>
 <div class="price-card">
-<h3>Prompt Pack</h3>
-<div class="price">$9<span> once</span></div>
+<h3>Developer Edition</h3>
+<div class="price">$49<span> once</span></div>
 <ul>
-<li>50 curated prompts</li>
-<li>Works with any LLM</li>
-<li>Instant download</li>
+<li>Everything in Genesis Pack</li>
+<li>Edge Function source code</li>
+<li>Stripe integration template</li>
+<li>Deployment automation</li>
+<li>Commercial license</li>
 </ul>
-<a href="https://kypriatechnologies.gumroad.com/l/persona-prompt-pack" class="btn btn-outline">Buy on Gumroad</a>
+<a href="https://mrspetses.gumroad.com/l/obbmd" class="btn btn-outline">Get Full System</a>
 </div>
 </div>
 </section>
@@ -178,7 +182,7 @@ const MAX_FREE=3;
 function runDemo(){
 const sel=document.getElementById('archetype').value;
 const out=document.getElementById('output');
-if(callCount>=MAX_FREE){out.innerHTML='<span class="response">Free demo limit reached (3/3).</span>\n<span class="comment"># Subscribe to Pro API for unlimited access:</span>\n<span class="prompt"><a href="https://buy.stripe.com/4gw7tk8PS3Re3HW145" style="color:var(--teal)">Subscribe to Pro API - $29/mo</a></span>';return}
+if(callCount>=MAX_FREE){out.innerHTML='<span class="response">Free demo limit reached (3/3).</span>\n<span class="comment"># Subscribe to API Access for unlimited synthesis:</span>\n<span class="prompt"><a href="https://buy.stripe.com/aFabJ0chNdwjbkl7MF1gs0I" style="color:var(--teal)">Start Building - $29/mo</a></span>';return}
 callCount++;
 const p=personas[sel];
 out.innerHTML='<span class="prompt">$ curl -X POST /v1/persona -d \'{"archetype":"'+p.archetype+'"}\' </span>\n<span class="comment"># Request '+callCount+'/'+MAX_FREE+' (free tier)</span>\n\n<span class="response">'+JSON.stringify(p,null,2)+'</span>';

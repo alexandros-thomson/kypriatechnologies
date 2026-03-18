@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Persona Engine - AI Personality API | Kypria Technologies</title>
+<meta name="description" content="Generate rich AI character personas with one API call. Try the live demo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0a0f;--surface:#12121a;--border:#1e1e2e;--text:#e2e2e8;--muted:#8888a0;--gold:#f0c040;--amethyst:#a855f7;--teal:#2dd4bf;--gradient:linear-gradient(135deg,var(--amethyst),var(--teal))}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{color:var(--teal);text-decoration:none}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+nav{padding:20px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+nav .logo{font-size:1.2rem;font-weight:700;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+nav ul{list-style:none;display:flex;gap:24px}
+nav a{color:var(--muted);font-size:.9rem}
+nav a:hover{color:var(--text)}
+.hero{text-align:center;padding:80px 0 60px}
+.hero h1{font-size:3rem;font-weight:700;margin-bottom:16px;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:1.2rem;color:var(--muted);max-width:600px;margin:0 auto 32px}
+.btn{display:inline-block;padding:12px 28px;border-radius:8px;font-weight:600;font-size:1rem;cursor:pointer;border:none;transition:.2s}
+.btn-primary{background:var(--gradient);color:#fff}
+.btn-primary:hover{opacity:.9;transform:translateY(-1px)}
+.btn-outline{border:1px solid var(--border);color:var(--text);background:transparent;margin-left:12px}
+.btn-outline:hover{border-color:var(--amethyst)}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:60px 0}
+.feature-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px}
+.feature-card h3{margin-bottom:8px;font-size:1.1rem}
+.feature-card p{color:var(--muted);font-size:.9rem}
+.section-title{text-align:center;font-size:2rem;font-weight:700;margin-bottom:40px}
+#demo{padding:60px 0}
+.console{background:#0d0d14;border:1px solid var(--border);border-radius:12px;overflow:hidden;max-width:700px;margin:0 auto}
+.console-header{background:var(--surface);padding:12px 16px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border)}
+.dot{width:12px;height:12px;border-radius:50%}
+.dot-red{background:#ff5f57}
+.dot-yellow{background:#febc2e}
+.dot-green{background:#28c840}
+.console-body{padding:20px;font-family:'Courier New',monospace;font-size:.85rem;min-height:300px}
+.console-line{margin-bottom:4px}
+.prompt{color:var(--teal)}
+.response{color:var(--gold)}
+.comment{color:var(--muted);font-style:italic}
+#output{white-space:pre-wrap}
+.demo-controls{text-align:center;margin-top:20px}
+.demo-controls select,.demo-controls button{padding:10px 16px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--text);font-size:.9rem;cursor:pointer;margin:4px}
+.demo-controls button:hover{border-color:var(--amethyst)}
+#pricing{padding:80px 0}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:900px;margin:0 auto}
+.price-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:32px;text-align:center}
+.price-card.featured{border-color:var(--amethyst);position:relative}
+.price-card.featured::before{content:'POPULAR';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gradient);color:#fff;font-size:.7rem;font-weight:700;padding:4px 12px;border-radius:12px}
+.price-card h3{font-size:1.2rem;margin-bottom:8px}
+.price{font-size:2.5rem;font-weight:700;margin:16px 0}
+.price span{font-size:.9rem;color:var(--muted);font-weight:400}
+.price-card ul{list-style:none;margin:20px 0;text-align:left}
+.price-card li{padding:6px 0;font-size:.9rem;color:var(--muted)}
+.price-card li::before{content:'\2713 ';color:var(--teal)}
+.price-card .btn{width:100%;display:block;text-align:center;margin-top:16px}
+footer{border-top:1px solid var(--border);padding:40px 0;text-align:center;color:var(--muted);font-size:.85rem}
+@media(max-width:768px){.features,.pricing-grid{grid-template-columns:1fr}.hero h1{font-size:2rem}}
+</style>
+</head>
+<body>
+<div class="container">
+<nav>
+<div class="logo">Kypria Technologies</div>
+<ul>
+<li><a href="#demo">Demo</a></li>
+<li><a href="#pricing">Pricing</a></li>
+<li><a href="https://kypriatechnologies.org">Home</a></li>
+</ul>
+</nav>
+
+<section class="hero">
+<h1>Persona Engine</h1>
+<p>Generate rich AI character personas with a single API call. Psychology-driven personality profiles for games, chatbots, and creative tools.</p>
+<a href="#demo" class="btn btn-primary">Try Live Demo</a>
+<a href="#pricing" class="btn btn-outline">View Pricing</a>
+</section>
+
+<section class="features">
+<div class="feature-card">
+<h3>Psychology-Driven</h3>
+<p>Big Five traits, MBTI, Enneagram, attachment style, and cognitive patterns in every persona.</p>
+</div>
+<div class="feature-card">
+<h3>One API Call</h3>
+<p>POST a genre or archetype, get a complete character with backstory, voice, and behavioral traits.</p>
+</div>
+<div class="feature-card">
+<h3>Instant Integration</h3>
+<p>JSON responses ready for game engines, chatbot frameworks, or any creative pipeline.</p>
+</div>
+</section>
+
+<section id="demo">
+<h2 class="section-title">Live Demo Console</h2>
+<div class="demo-controls">
+<select id="archetype">
+<option value="fantasy-mentor">Fantasy Mentor</option>
+<option value="noir-detective">Noir Detective</option>
+<option value="sci-fi-rebel">Sci-Fi Rebel</option>
+<option value="cosmic-horror-scholar">Cosmic Horror Scholar</option>
+<option value="cyberpunk-hacker">Cyberpunk Hacker</option>
+</select>
+<button onclick="runDemo()">Generate Persona</button>
+</div>
+<div class="console">
+<div class="console-header">
+<span class="dot dot-red"></span>
+<span class="dot dot-yellow"></span>
+<span class="dot dot-green"></span>
+<span style="color:var(--muted);font-size:.8rem;margin-left:8px">persona-engine v1.0</span>
+</div>
+<div class="console-body">
+<div class="console-line comment"># Select an archetype above and click Generate</div>
+<div id="output"></div>
+</div>
+</div>
+</section>
+
+<section id="pricing">
+<h2 class="section-title">Pricing</h2>
+<div class="pricing-grid">
+<div class="price-card">
+<h3>Free Tier</h3>
+<div class="price">$0<span>/mo</span></div>
+<ul>
+<li>3 API calls (demo)</li>
+<li>Basic persona fields</li>
+<li>Community support</li>
+</ul>
+<a href="#demo" class="btn btn-outline">Try Demo</a>
+</div>
+<div class="price-card featured">
+<h3>Pro API</h3>
+<div class="price">$29<span>/mo</span></div>
+<ul>
+<li>1,000 API calls/month</li>
+<li>Full persona profiles</li>
+<li>Priority support</li>
+<li>Webhook integrations</li>
+</ul>
+<a href="https://buy.stripe.com/4gw7tk8PS3Re3HW145" class="btn btn-primary">Subscribe Now</a>
+</div>
+<div class="price-card">
+<h3>Prompt Pack</h3>
+<div class="price">$9<span> once</span></div>
+<ul>
+<li>50 curated prompts</li>
+<li>Works with any LLM</li>
+<li>Instant download</li>
+</ul>
+<a href="https://kypriatechnologies.gumroad.com/l/persona-prompt-pack" class="btn btn-outline">Buy on Gumroad</a>
+</div>
+</div>
+</section>
+
+<footer>
+<p>&copy; 2025 Kypria Technologies. All rights reserved.</p>
+<p style="margin-top:8px"><a href="https://kypriatechnologies.org">kypriatechnologies.org</a></p>
+</footer>
+</div>
+
+<script>
+const personas={
+"fantasy-mentor":{name:"Thalendris the Woven",archetype:"Fantasy Mentor",mbti:"INFJ",enneagram:"5w4",big5:{openness:92,conscientiousness:78,extraversion:25,agreeableness:65,neuroticism:40},traits:["cryptic wisdom","patient silence","hidden grief"],voice:"Speaks in layered metaphors; pauses carry weight",backstory:"Once a court mage who foresaw a kingdom's fall and chose exile over complicity."},
+"noir-detective":{name:"Marlowe Vance",archetype:"Noir Detective",mbti:"ISTP",enneagram:"6w5",big5:{openness:55,conscientiousness:70,extraversion:35,agreeableness:30,neuroticism:65},traits:["dry humor","moral flexibility","haunted loyalty"],voice:"Clipped sentences. Metaphors drawn from rain and rust.",backstory:"Ex-cop turned PI after exposing corruption that cost him everything."},
+"sci-fi-rebel":{name:"Kael-7",archetype:"Sci-Fi Rebel",mbti:"ENTP",enneagram:"7w8",big5:{openness:88,conscientiousness:30,extraversion:82,agreeableness:40,neuroticism:55},traits:["reckless charm","idealistic rage","gallows humor"],voice:"Fast, electric, peppered with slang from three star systems.",backstory:"Born in a corporate labor colony; escaped at 16 on a stolen shuttle."},
+"cosmic-horror-scholar":{name:"Dr. Elara Voss",archetype:"Cosmic Horror Scholar",mbti:"INTJ",enneagram:"5w6",big5:{openness:95,conscientiousness:85,extraversion:15,agreeableness:35,neuroticism:78},traits:["obsessive focus","creeping dread","detached wonder"],voice:"Academic precision that frays at the edges when discussing the deep.",backstory:"Tenured professor who found patterns in ancient texts that no human should recognize."},
+"cyberpunk-hacker":{name:"Zyx",archetype:"Cyberpunk Hacker",mbti:"INTP",enneagram:"5w4",big5:{openness:90,conscientiousness:45,extraversion:20,agreeableness:28,neuroticism:60},traits:["paranoid brilliance","anti-authority","digital empathy"],voice:"Terse, encrypted, occasional bursts of poetry.",backstory:"Neural-jacked at 12; sees the net as more real than meatspace."}
+};
+let callCount=0;
+const MAX_FREE=3;
+function runDemo(){
+const sel=document.getElementById('archetype').value;
+const out=document.getElementById('output');
+if(callCount>=MAX_FREE){out.innerHTML='<span class="response">Free demo limit reached (3/3).</span>\n<span class="comment"># Subscribe to Pro API for unlimited access:</span>\n<span class="prompt"><a href="https://buy.stripe.com/4gw7tk8PS3Re3HW145" style="color:var(--teal)">Subscribe to Pro API - $29/mo</a></span>';return}
+callCount++;
+const p=personas[sel];
+out.innerHTML='<span class="prompt">$ curl -X POST /v1/persona -d \'{"archetype":"'+p.archetype+'"}\' </span>\n<span class="comment"># Request '+callCount+'/'+MAX_FREE+' (free tier)</span>\n\n<span class="response">'+JSON.stringify(p,null,2)+'</span>';
+}
+</script>
+</body>
+</html>

@@ -30,3 +30,27 @@
   to = "/docs/divine-trinity/lifesphere-temple/"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/docs/aphrodite-temple/*"
+  to = "/docs/divine-trinity/aphrodite-temple/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/docs/aphrodite-temple"
+  to = "/docs/divine-trinity/aphrodite-temple/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/docs/lifesphere-temple/*"
+  to = "/docs/divine-trinity/lifesphere-temple/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/docs/lifesphere-temple"
+  to = "/docs/divine-trinity/lifesphere-temple/"
+  status = 301
+  force = true

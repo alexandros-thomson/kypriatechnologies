@@ -6,3 +6,27 @@
   from = "/deletion-status"
   to = "/deletion-status/index.html"
   status = 200
+
+[[redirects]]
+  from = "/docs/aphrodite-temple/"
+  to = "/docs/divine-trinity/aphrodite-temple/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/docs/aphrodite-temple"
+  to = "/docs/divine-trinity/aphrodite-temple/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/docs/lifesphere-temple/"
+  to = "/docs/divine-trinity/lifesphere-temple/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/docs/lifesphere-temple"
+  to = "/docs/divine-trinity/lifesphere-temple/"
+  status = 301
+  force = true

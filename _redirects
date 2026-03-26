@@ -1,3 +1,9 @@
+# Forced redirects for old temple paths
+/docs/aphrodite-temple/  /docs/divine-trinity/aphrodite-temple/  301!
+/docs/aphrodite-temple   /docs/divine-trinity/aphrodite-temple/  301!
+/docs/lifesphere-temple/ /docs/divine-trinity/lifesphere-temple/ 301!
+/docs/lifesphere-temple  /docs/divine-trinity/lifesphere-temple/ 301!
+
 # Clean URL redirects
 /privacy    /privacy.html    200
 /zeus       /docs/divine-trinity/zeus.html    200
